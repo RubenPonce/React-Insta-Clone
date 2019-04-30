@@ -1,0 +1,10 @@
+.post-header{
+    display: flex;
+    justify-content: left;
+    margin-left: 140px;
+    
+}
+.thumbnail{
+    width: 60px;
+    height: 60px;
+}

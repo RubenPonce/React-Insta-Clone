@@ -5,19 +5,33 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import dummyData from "./dummy-data";
 
 
-function App() {
-  console.log(dummyData)
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      data: []
+    }
+    
+  }
+  componentDidMount(){
+    this.setState({
+      data: dummyData,
+    })
+  }
+
+ render(){ 
+   
   return (
 
     <div className="App">
       <SearchBar />
       <div className="post-collection">
-        {dummyData.map(post => {
+        {this.state.data.map(post => {
           return <PostContainer postData={post} key={post.id} />;
         })}
       </div>
     </div>
-  );
+  )};
 }
 
 
