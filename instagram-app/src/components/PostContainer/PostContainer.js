@@ -5,7 +5,6 @@ import "./PostContainer.css"
 const PostContainer = (props)=>{
     
     const data = props.postData
-    console.log(props)
     return(
         <div className="post-content">
         <div className="post-header">
@@ -13,7 +12,7 @@ const PostContainer = (props)=>{
             <h2>{data.username}</h2>
         </div>
         <img src={data.imageUrl}></img>
-       <CommentSection commentsArr={data.comments}/>   
+       <CommentSection commentsArr={data.comments} likes={data.likes}/>   
     </div> 
     )
 } 

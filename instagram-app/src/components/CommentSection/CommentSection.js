@@ -3,15 +3,20 @@ import "./CommentSection.css";
 class CommentSection extends React.Component{
     constructor(props){
         super(props);
+
         this.state = {
             comments: props.commentsArr,
             commenter: {
             text: '',
             username: 'tester',
-            }
-            
-           
+            },
+            likes: props.likes,
+            likeStyle: null,
+            likeClicked: false,
+        
+
         }
+       
     }
     
 addNewComment = (e)=>{
@@ -20,21 +25,46 @@ addNewComment = (e)=>{
         comments: this.state.comments.concat(this.state.commenter)
     })
 }
+
+
+
 handleChange = (e)=>{
+
+
     this.setState({
         commenter: {
             ...this.state.commenter,
             text: e.target.value,
-        },
-        
+        }, 
     })
+
 }
+
+addLike = ()=>{
+    this.setState({
+        likeClicked: !this.state.likeClicked
+    })
+
+    if(this.state.likeClicked){
+        this.setState({
+            likes: this.state.likes+1,
+            likeClicked: false
+        })
+    } else{
+        this.setState({
+            likes: this.props.likes
+        })
+    }
+        
+}
+
   render(){return (
     <div className="comment-container">
     <div className="icons">
-      <i class="far fa-heart fa-2x"></i>
-      <i class="far fa-comment fa-2x"></i>
+      <i onClick={this.addLike} className={this.state.likeClicked ? "like-style far fa-heart fa-2x": "far fa-heart fa-2x"}> </i>
+      <i className="far fa-comment fa-2x"></i>
       </div>
+      <h1>{this.state.likes} likes</h1>
 
 
       {this.state.comments.map((comment,i)=>{
