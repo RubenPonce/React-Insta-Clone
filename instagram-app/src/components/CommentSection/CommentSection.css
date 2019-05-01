@@ -1,0 +1,33 @@
+.comment{
+    display: flex;
+    justify-content: center;
+    
+}
+.userName{
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.add-comment{
+    display: flex;
+    justify-content: center;
+}
+.icons{ 
+    display: flex;
+    justify-content:center;
+    margin-right: 55%;
+    
+}
+.icons i{
+    margin-right: 1em;
+    margin: .5em 0;
+    cursor:pointer;
+}
+
+.like{
+    font-weight: 600;
+    margin-right: 55%;
+}
+.like-button{
+    color:#ED4956;
+}
