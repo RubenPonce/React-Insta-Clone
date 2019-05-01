@@ -1,37 +1,36 @@
 import React from "react";
 import "./App.css";
-import PostContainer from "./components/PostContainer/PostContainer";
-import SearchBar from "./components/SearchBar/SearchBar";
-import dummyData from "./dummy-data";
-
+import withAuthenticate from './authentication/withAuthenticate'
+import LoginPage from './components/Login/LoginPage'
+import PostsPage from './components/PostContainer/PostsPage'
 
 class App extends React.Component {
   constructor(){
-    super();
+    super()
     this.state = {
-      data: []
+      loggedIn: false,
     }
     
   }
-  componentDidMount(){
+
+  login = (e)=>{
+    console.log(e.target)
     this.setState({
-      data: dummyData,
+      loggedIn: !this.state.loggedIn
     })
   }
 
  render(){ 
-   
-  return (
+  if(!this.state.loggedIn){
+    let ComponentFromWithAuthenticate = withAuthenticate(LoginPage);
+    return <ComponentFromWithAuthenticate login={this.login}/>
+  }else{
+    let ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+    return <ComponentFromWithAuthenticate login={this.login}/>
+  }
+  
 
-    <div className="App">
-      <SearchBar />
-      <div className="post-collection">
-        {this.state.data.map(post => {
-          return <PostContainer postData={post} key={post.id} />;
-        })}
-      </div>
-    </div>
-  )};
+  };
 }
 
 
