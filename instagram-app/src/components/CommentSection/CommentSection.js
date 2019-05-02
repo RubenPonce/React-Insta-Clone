@@ -21,10 +21,14 @@ class CommentSection extends React.Component {
 
   addNewComment = e => {
     e.preventDefault();
+
+    if(e.target.comment.value!=="")
     this.setState({
       comments: [...this.state.comments, this.state.commenter]
     });
+
     e.target.comment.value = "";
+
   };
 
   handleChange = e => {
