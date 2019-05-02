@@ -17,8 +17,12 @@ class App extends React.Component {
 
   login = (e)=>{
     e.preventDefault();
-    console.log(e.target.user.value)
-    localStorage.setItem('user',e.target.user.value)
+    if(e.target.user){
+      localStorage.setItem('user',e.target.user.value)
+    } else{
+      localStorage.removeItem('user')
+    }
+    
     this.setState({
       username: localStorage.getItem('user')
     })

@@ -9,13 +9,13 @@ const withAuthenticate = FirstComp => SecondComp =>
     }
 
     render() {
-      if (this.props.loggedIn) {
+      if (localStorage.getItem('user')) {
         return <FirstComp login={this.props.loginLogout} />;
       } else {
         return (
           <SecondComp
             login={this.props.loginLogout}
-            getUserName={this.props.getUserName}
+            
           />
         );
       }
