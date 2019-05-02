@@ -1,7 +1,12 @@
 .comment{
     display: flex;
     justify-content: left;
-    
+    align-content: baseline;
+    align-items: baseline;
+    align-content: baseline;
+}
+.comment{
+    margin: 0;
 }
 .userName{
     font-weight: 600;
@@ -13,6 +18,9 @@
     justify-content: center;
     flex-wrap: nowrap;
     width: 100%;
+}
+.add-comment input{
+    margin-right: 8px;
 }
 .icons{ 
     display: flex;

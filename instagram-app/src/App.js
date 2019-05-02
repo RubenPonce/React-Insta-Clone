@@ -14,12 +14,6 @@ class App extends React.Component {
     
   }
 
-  getUserName = (e)=>{
-    e.preventDefault();
-    console.log('form!!!!?? HELLO????????????');
-   
-    
-    }
 
   login = (e)=>{
     e.preventDefault();
