@@ -1,6 +1,6 @@
 .comment{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     
 }
 .userName{
@@ -14,19 +14,20 @@
 }
 .icons{ 
     display: flex;
-    justify-content:center;
-    margin-right: 55%;
+    justify-content:left;
     
 }
 .icons i{
     margin-right: 1em;
-    margin: .5em 0;
+    
     cursor:pointer;
 }
 
 .like{
     font-weight: 600;
-    margin-right: 55%;
+    display: flex;
+    justify-self: left;
+   
 }
 .like-button{
     color:#ED4956;

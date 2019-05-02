@@ -12,7 +12,7 @@ class App extends React.Component {
     }
     
   }
-  
+
 
   login = (e)=>{
     console.log(e.target)
@@ -22,18 +22,12 @@ class App extends React.Component {
   }
 
  render(){ 
-  if(!this.state.loggedIn){
-    let ComponentFromWithAuthenticate = withAuthenticate(LoginPage);
-    return <ComponentFromWithAuthenticate login={this.login}/>
-  }else{
-    let ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
-    return <ComponentFromWithAuthenticate login={this.login}/>
-  }
-  
-
-  };
+  return(<div className="App">
+  <ComponentWithAuthenticate loggedIn={this.state.loggedIn} loginLogout={this.login} />
+  </div>)
 }
-
+}
+const ComponentWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
 
 export default App;

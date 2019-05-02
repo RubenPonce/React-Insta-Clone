@@ -2,14 +2,18 @@ import React from 'react';
 import PostsPage from "../components/PostContainer/PostsPage"
 import LoginPage from '../components/Login/LoginPage'
 
-const withAuthenticate = Page =>
+const withAuthenticate = FirstComp => SecondComp=>
   class extends React.Component {
     constructor(props){
       super(props);
-      console.log(props)
     }
     render() {
-      return <Page login={this.props.login}/>
+      if(this.props.loggedIn){
+       return <FirstComp  login={this.props.loginLogout}/>
+      } else{
+        return <SecondComp  login={this.props.loginLogout}/>
+      }
+      
       
     }
   };

@@ -2,14 +2,13 @@ import React from "react";
 import PostContainer from "./PostContainer";
 import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "../../dummy-data";
-import LoginPage from '../Login/LoginPage'
 class PostsPage extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
           data: []
         }
-        
+        console.log(props)
       }
       componentDidMount(){
         this.setState({
@@ -45,7 +44,7 @@ class PostsPage extends React.Component{
         return (
       
           <div className="App">
-            <SearchBar  searchUserName={this.searchUserName} handleSearchInput={this.handleSearchInput} />
+            <SearchBar  searchUserName={this.searchUserName} handleSearchInput={this.handleSearchInput} loginLogout={this.props.login} />
             <div className="post-collection">
               {this.state.data.map(post => {
                 return <PostContainer postData={post} key={post.id}  />;

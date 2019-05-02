@@ -65,13 +65,13 @@ addLike = ()=>{
     <span  onClick={this.addLike}>{this.state.likeClicked ? <i className="fas fa-heart fa-2x  like-button"></i> : <i className="far fa-heart fa-2x"></i>} </span>
       <i className="far fa-comment fa-2x"></i>
       </div>
-      <h1 className="like">{this.state.likes} likes</h1>
+      <h6 className="like">{this.state.likes} likes</h6>
 
 
       {this.state.comments.map((comment,i)=>{
           return(
         <div className="comment" key={i}>
-          <h1 className="userName">{comment.username}</h1>
+          <h6 className="userName">{comment.username}</h6>
           <p>{comment.text}</p>
           </div>
           )  
