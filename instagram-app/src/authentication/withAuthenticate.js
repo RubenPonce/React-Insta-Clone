@@ -7,11 +7,16 @@ const withAuthenticate = FirstComp => SecondComp=>
     constructor(props){
       super(props);
     }
+   
     render() {
       if(this.props.loggedIn){
+        
+        
        return <FirstComp  login={this.props.loginLogout}/>
       } else{
-        return <SecondComp  login={this.props.loginLogout}/>
+        console.log(localStorage.getItem('user'))
+        
+        return <SecondComp  login={this.props.loginLogout} getUserName={this.props.getUserName}/>
       }
       
       
@@ -19,3 +24,4 @@ const withAuthenticate = FirstComp => SecondComp=>
   };
 
 export default withAuthenticate;
+

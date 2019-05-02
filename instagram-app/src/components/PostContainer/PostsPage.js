@@ -19,6 +19,7 @@ class PostsPage extends React.Component{
     
     searchUserName= (e)=>{
       e.preventDefault();
+      
       if(this.state.data.length > 1){
         this.setState({
           data: this.state.data.filter(data=>data.username.includes(this.state.searchInput))
@@ -35,6 +36,7 @@ class PostsPage extends React.Component{
           
      
     handleSearchInput= (e)=>{
+        
       this.setState({
         searchInput: e.target.value,
       })

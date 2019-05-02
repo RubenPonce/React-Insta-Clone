@@ -9,13 +9,25 @@ class App extends React.Component {
     super()
     this.state = {
       loggedIn: false,
+      username: null,
     }
     
   }
 
+  getUserName = (e)=>{
+    e.preventDefault();
+    console.log('form!!!!?? HELLO????????????');
+   
+    
+    }
 
   login = (e)=>{
-    console.log(e.target)
+    e.preventDefault();
+    console.log(e.target.user.value)
+    localStorage.setItem('user',e.target.user.value)
+    this.setState({
+      username: localStorage.getItem('user')
+    })
     this.setState({
       loggedIn: !this.state.loggedIn
     })
@@ -23,7 +35,7 @@ class App extends React.Component {
 
  render(){ 
   return(<div className="App">
-  <ComponentWithAuthenticate loggedIn={this.state.loggedIn} loginLogout={this.login} />
+  <ComponentWithAuthenticate loggedIn={this.state.loggedIn} loginLogout={this.login} getUserName={this.getUserName} />
   </div>)
 }
 }

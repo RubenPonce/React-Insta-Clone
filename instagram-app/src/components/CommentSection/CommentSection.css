@@ -11,6 +11,8 @@
 .add-comment{
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 .icons{ 
     display: flex;

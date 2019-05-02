@@ -1,4 +1,8 @@
 .heading{
     display: flex;
     justify-content: space-evenly;
+    padding-top: 2em;
+}
+#bar{
+    font-size: 2em;
 }

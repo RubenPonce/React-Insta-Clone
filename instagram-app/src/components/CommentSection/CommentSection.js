@@ -1,13 +1,16 @@
 import React from "react";
 import "./CommentSection.css";
+import {Button, Input} from 'reactstrap';
+
 class CommentSection extends React.Component{
+
     constructor(props){
         super(props);
         this.state = {
             comments: props.commentsArr,
             commenter: {
             text: '',
-            username: 'tester',
+            username: `${localStorage.getItem('user')}`,
             },
             likes: props.likes,
             likeStyle: {
@@ -15,6 +18,7 @@ class CommentSection extends React.Component{
             },
             likeClicked: false,
         }
+        
     }
     
 componentDidMount(){
@@ -76,10 +80,10 @@ addLike = ()=>{
           </div>
           )  
       })}
-      <div className="add-comment">
-      <form onSubmit={this.addNewComment}>
-        <input placeholder="Add comment..." onChange={this.handleChange} />
-        <button >...</button>
+      <div >
+      <form className="add-comment" onSubmit={this.addNewComment}>
+        <Input placeholder="Add comment..." onChange={this.handleChange} />
+        <Button outline color="primary">POST </Button>
         </form>
       </div>
     </div>
