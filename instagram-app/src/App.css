@@ -1,8 +1,13 @@
 .App {
   text-align: center;
-  width: 900px;
+  width: 614px;
   margin: 0 auto;
-  border: 1px solid red;
+}
+html{
+  background: #FAFAFA
+}
+#root{
+  background: #fafafa;
 }
 
 .App-logo {

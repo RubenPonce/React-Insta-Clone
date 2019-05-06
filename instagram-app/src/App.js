@@ -9,30 +9,35 @@ class App extends React.Component {
     super()
     this.state = {
       loggedIn: false,
+      username: null,
     }
     
   }
 
+
   login = (e)=>{
-    console.log(e.target)
+    e.preventDefault();
+    if(e.target.user){
+      localStorage.setItem('user',e.target.user.value)
+    } else{
+      localStorage.removeItem('user')
+    }
+    
+    this.setState({
+      username: localStorage.getItem('user')
+    })
     this.setState({
       loggedIn: !this.state.loggedIn
     })
   }
 
  render(){ 
-  if(!this.state.loggedIn){
-    let ComponentFromWithAuthenticate = withAuthenticate(LoginPage);
-    return <ComponentFromWithAuthenticate login={this.login}/>
-  }else{
-    let ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
-    return <ComponentFromWithAuthenticate login={this.login}/>
-  }
-  
-
-  };
+  return(<div className="App">
+  <ComponentWithAuthenticate loggedIn={this.state.loggedIn} loginLogout={this.login} getUserName={this.getUserName} />
+  </div>)
 }
-
+}
+const ComponentWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
 
 export default App;

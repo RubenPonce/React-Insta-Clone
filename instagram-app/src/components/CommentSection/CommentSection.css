@@ -1,7 +1,12 @@
 .comment{
     display: flex;
-    justify-content: center;
-    
+    justify-content: left;
+    align-content: baseline;
+    align-items: baseline;
+    align-content: baseline;
+}
+.comment{
+    margin: 0;
 }
 .userName{
     font-weight: 600;
@@ -11,22 +16,28 @@
 .add-comment{
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.add-comment input{
+    margin-right: 8px;
 }
 .icons{ 
     display: flex;
-    justify-content:center;
-    margin-right: 55%;
+    justify-content:left;
     
 }
 .icons i{
     margin-right: 1em;
-    margin: .5em 0;
+    
     cursor:pointer;
 }
 
 .like{
     font-weight: 600;
-    margin-right: 55%;
+    display: flex;
+    justify-self: left;
+   
 }
 .like-button{
     color:#ED4956;
